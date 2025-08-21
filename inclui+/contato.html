@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato - Inclui+Verde</title>
+  <link rel="stylesheet" href="css/contato.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="img/logo.png" alt="Inclui+Verde Logo" class="logo-img">
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="loja.html">Loja</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="criar-loja.html">Minha Loja</a></li>
+    </ul>
+
+    <a href="carrinho.html">
+  <div class="carrinho-icone">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="contador-carrinho" style="display: none;">0</span>
+  </div>
+</a>
+    <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
+
+  </nav>
+  </header>
+
+  <section class="contato">
+    <div class="container">
+      <div class="formulario">
+        <h1>Entre em Contato 🌿</h1>
+        <p>Fale com a gente! Tire dúvidas, envie sugestões ou nos diga como podemos ajudar.</p>
+
+        <form action="#" method="POST">
+          <input type="text" name="nome" placeholder="Seu nome" required />
+          <input type="email" name="email" placeholder="Seu e-mail" required />
+          <input type="text" name="assunto" placeholder="Assunto" />
+          <textarea name="mensagem" rows="5" placeholder="Digite sua mensagem..." required></textarea>
+          <button type="submit">Enviar Mensagem</button>
+        </form>
+      </div>
+      <div class="imagem">
+        <img src="img/contato.png" alt="Pessoa escrevendo uma mensagem" />
+      </div>
+    </div>
+  </section>
+  <section class="pesquisa-satisfacao">
+  <div class="container-pesquisa">
+    <div class="col-esquerda">
+      <h2>📝 Pesquisa de Satisfação</h2>
+    </div>
+    <div class="col-centro">
+      <p>Nos ajude a melhorar! Responda nossa pesquisa e conte como foi sua experiência com a Inclui+Verde.</p>
+    </div>
+    <div class="col-direita">
+      <button class="btn-pesquisa" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScImzqvOWKJ0fMork3NhX71qGQa4zIeU1FByG7oh7deMKCmcg/formResponse', '_blank')">
+        Responder Pesquisa
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <div class="rodape-logo">
+        <img src="img/verde.png" alt="Inclui+Verde Logo" />
+        <p>Promovendo um futuro mais verde, justo e colaborativo.</p>
+      </div>
+
+      <div class="rodape-links">
+      <h4>Links Rápidos</h4>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="loja.html">Loja</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+
+   <div class="rodape-social">
+  <h4>Redes Sociais</h4>
+  <div class="icones-sociais">
+    <a href="https://www.instagram.com/inclui_mais_verde?igsh=aGh6Z2Ywa254Mmd2">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:incluimaisverde@gmail.com">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+</div>
+  </footer>
+  </script>
+<script>
+const form = document.querySelector('form');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); 
+
+    alert('Mensagem enviada com sucesso! Em breve daremos retorno. 🌿');
+
+    form.reset();
+  });
+
+    const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('nav-links')
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+  let lastScrollTop = 0;
+  const navbar = document.querySelector('.navbar');
+  const searchBar = document.querySelector('.search-bar-wrapper');
+
+  window.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      
+      navbar.style.top = "-80px";
+      searchBar.style.top = "-60px";
+    } else {
+     
+      navbar.style.top = "0";
+      searchBar.style.top = "70px";
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, false);
+  function carregarCarrinho() {
+  const carrinhoJSON = localStorage.getItem('carrinho');
+  return carrinhoJSON ? JSON.parse(carrinhoJSON) : [];
+}
+
+function atualizarContadorCarrinho() {
+  const carrinho = carregarCarrinho();
+  const totalItens = carrinho.reduce((soma, item) => soma + item.quantidade, 0);
+  const contador = document.getElementById('contador-carrinho');
+
+  if (!contador) return; 
+
+  if (totalItens > 0) {
+    contador.textContent = totalItens;
+    contador.style.display = 'inline-block';
+  } else {
+    contador.style.display = 'none';
+  }
+}
+
+window.addEventListener('load', () => {
+  atualizarContadorCarrinho();
+});
+
+</script>
+</body>
+</html>

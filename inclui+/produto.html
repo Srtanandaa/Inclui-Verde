@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produto - Inclui+Verde</title>
+  <link rel="stylesheet" href="css/produto.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="img/logo.png" alt="Inclui+Verde Logo" class="logo-img">
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="loja.html">Loja</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="criar-loja.html">Minha Loja</a></li>
+    </ul>
+
+   <a href="carrinho.html">
+  <div class="carrinho-icone">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="contador-carrinho" class="contador-carrinho">0</span>
+  </div>
+</a>
+
+    <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
+
+  </nav>
+
+  <div class="search-bar-wrapper">
+    <input type="text" class="search" placeholder="Buscar produtos..." />
+  </div>
+</header>
+
+<main>
+  <section class="pagina-produto">
+    <div class="produto-container">
+      <div class="produto-imagem">
+        
+        <img id="produto-img" src="" alt="Imagem do Produto" />
+      </div>
+      <div class="produto-detalhes">
+        <h1 id="produto-nome">Carregando...</h1>
+        <p class="preco" id="produto-preco"></p>
+        <p class="descricao" id="produto-descricao"></p>
+        <div class="beneficios">
+          <h3>Benefícios</h3>
+          <ul id="produto-beneficios"></ul>
+        </div>
+
+        <div class="quantidade-container">
+  <button class="btn-menos" onclick="alterarQuantidade(-1)">-</button>
+  <input type="number" id="quantidade" value="1" min="1" readonly />
+  <button class="btn-mais" onclick="alterarQuantidade(1)">+</button>
+</div>
+
+
+        <button class="botao-comprar">Comprar</button>
+        <button class="botao-comprar"><i class="fas fa-shopping-cart"></i> Incluir+</button>
+      </div>
+    </div>
+  </section>
+
+ <section class="relacionados">
+  <h2>🌿 Você também pode gostar de:</h2>
+  
+  <div class="card-container-wrapper">
+    <button class="scroll-button left" onclick="scrollCards(this, -1)">←</button>
+    
+    <div class="card-container"></div>
+    
+    <button class="scroll-button right" onclick="scrollCards(this, 1)">→</button>
+  </div>
+</section>
+
+
+</main>
+
+<footer class="rodape">
+  <div class="rodape-conteudo">
+    <div class="rodape-logo">
+      <img src="img/verde.png" alt="Inclui+Verde Logo" />
+      <p>Promovendo um futuro mais verde, justo e colaborativo.</p>
+    </div>
+
+    <div class="rodape-links">
+      <h4>Links Rápidos</h4>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="loja.html">Loja</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="criar-loja.html">Minha Loja</a></li>
+      </ul>
+    </div>
+
+   <div class="rodape-social">
+  <h4>Redes Sociais</h4>
+  <div class="icones-sociais">
+    <a href="https://www.instagram.com/inclui_mais_verde?igsh=aGh6Z2Ywa254Mmd2">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:incluimaisverde@gmail.com">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+</div>
+</footer>
+
+<script>
+  const produtos = {
+    sabaoEcologico: {
+      nome: "Sabão Ecológico",
+      img: "img/sabão.png",
+      preco: "R$ 14,50",
+      descricao:
+        "Nosso sabão ecológico é feito com óleos vegetais reaproveitados, sem adição de produtos químicos agressivos. Ideal para limpeza geral, seguro para a natureza e para sua casa.",
+      beneficios: [
+        "Produzido com óleo vegetal reaproveitado",
+        "Livre de químicos agressivos",
+        "Seguro para pets e crianças",
+        "Biodegradável e amigo da natureza",
+        "Embalagem reciclável",
+      ],
+    },
+    desinfetanteNatural: {
+      nome: "Desinfetante Natural",
+      img: "img/Desinfetante.png",
+      preco: "R$ 18,90",
+      descricao: "Limpeza eficaz sem agredir o meio ambiente.",
+      beneficios: [
+        "Livre de químicos tóxicos",
+        "Aroma natural",
+        "Seguro para superfícies diversas",
+      ],
+    },
+    detergenteEcologico: {
+      nome: "Detergente Ecológico",
+      img: "img/detergente.png",
+      preco: "R$ 10,90",
+      descricao:
+        "Uma escolha consciente para quem quer uma pia limpa e um planeta mais verde.",
+      beneficios: [
+        "Biodegradável e seguro",
+        "Produzido por pequenos produtores locais",
+        "Não agride o meio ambiente",
+      ],
+    },
+    sabaoEmPo: {
+  nome: "Sabão em pó",
+  img: "img/sabao-em-po.png",
+  preco: "R$ 29,90",
+  descricao: "Ideal para todos os tipos de tecidos.",
+  beneficios: [
+    "Alta eficiência na limpeza",
+    "Seguro para roupas delicadas",
+    "Biodegradável"
+  ]
+},
+pastilhaSanitaria: {
+  nome: "Pastilha para vaso sanitário",
+  img: "img/pastilha.png",
+  preco: "R$ 10,00",
+  descricao: "Limpeza prática e ecológica para o seu banheiro.",
+  beneficios: [
+    "Facilita a limpeza",
+    "Biodegradável",
+    "Aroma refrescante"
+  ]
+},
+velasNaturais: {
+    nome: "Velas Naturais",
+    img: "img/vela outro.png",
+    preco: "R$ 15,00",
+    descricao: "Produzidas artesanalmente com cera vegetal.",
+    beneficios: [
+      "Artesanais",
+      "Cera vegetal",
+      "Aroma natural"
+    ]
+  },
+  detergenteEcoComunidade: {
+    nome: "Detergente Eco",
+    img: "img/detergente outro.png",
+    preco: "R$ 11,90",
+    descricao: "Feito por pequenos produtores locais. Biodegradável.",
+    beneficios: [
+      "Produção local",
+      "Biodegradável",
+      "Alta qualidade"
+    ]
+  },
+  buchaVegetal: {
+    nome: "Bucha Vegetal",
+    img: "img/bucha outro.png",
+    preco: "R$ 8,50",
+    descricao: "Alternativa natural e compostável às esponjas sintéticas.",
+    beneficios: [
+      "Compostável",
+      "Natural",
+      "Eficaz para limpeza"
+    ]
+  },
+  saboneteNaturalComunidade: {
+    nome: "Sabonete Natural",
+    img: "img/sabonete outro.png",
+    preco: "R$ 9,50",
+    descricao: "Feito à mão com óleos vegetais e ervas, sem corantes artificiais. Ideal para peles sensíveis.",
+    beneficios: [
+      "Artesanal",
+      "Ingredientes naturais",
+      "Sem corantes artificiais"
+    ]
+  },
+    sabaoLavanda: {
+    nome: "Sabonete de Lavanda Ecológico",
+    img: "img/sabao lavanda outro.png",
+    preco: "R$ 12,00",
+    descricao: "Sabonete suave que acalma a pele com o toque da lavanda.",
+    beneficios: [
+        "Acalma a pele",
+        "Aroma relaxante de lavanda",
+        "Ingrediente natural e ecológico"
+    ]
+},
+escovaBambu: {
+    nome: "Escova de Dentes de Bambu",
+    img: "img/escova bambu outro.png",
+    preco: "R$ 25,00",
+    descricao: "Escova de dentes sustentável, com cabo de bambu ecológico.",
+    beneficios: [
+        "Cabo de bambu biodegradável",
+        "Cerdas suaves para dentes e gengivas sensíveis",
+        "Alternativa ecológica ao plástico"
+    ]
+},
+sabaoNatural: {
+    nome: "Sabonete Natural",
+    img: "img/sabonete natural outro.png",
+    preco: "R$ 12,80",
+    descricao: "Sabonete artesanal, feito com ingredientes naturais e suaves para a pele.",
+    beneficios: [
+        "Ingredientes 100% naturais",
+        "Hidratação profunda",
+        "Sem aditivos químicos"
+    ]
+},
+  sprayAromatic: {
+    nome: "Spray Aromático Natural",
+    img: "img/spray outro.png",
+    preco: "R$ 13,00",
+    descricao: "Perfuma o ambiente com óleos essenciais puros.",
+    beneficios: [
+      "Óleos essenciais puros",
+      "Aroma suave",
+      "Refresca o ambiente"
+    ]
+  }
+
+  };
+
+function adicionarAoCarrinho(silencioso = false) {
+  const id = getParam("id") || "sabaoEcologico"; 
+  const nome = document.getElementById("produto-nome").textContent.trim();
+  const precoTexto = document.getElementById("produto-preco").textContent.trim();
+  const preco = parseFloat(precoTexto.replace("R$", "").replace(",", ".").trim()) || 0;
+  const imagem = document.getElementById("produto-img").getAttribute("src");
+
+  const quantidade = parseInt(document.getElementById("quantidade").value) || 1;
+
+  let carrinho = carregarCarrinho();
+
+  const produtoExistente = carrinho.find(item => item.id === id);
+
+  if (produtoExistente) {
+   
+    produtoExistente.quantidade = quantidade; 
+  } else {
+    
+    carrinho.push({ id, nome, preco, imagem, quantidade });
+  }
+  salvarCarrinho(carrinho);
+
+  atualizarContadorCarrinho();
+
+ 
+  if (!silencioso) {
+    alert(`Produto "${nome}" adicionado ao carrinho!`);
+  }
+}
+
+
+
+function comprarAgora() {
+  adicionarAoCarrinho(true); 
+  window.location.href = 'carrinho.html';
+}
+
+document.querySelector(".produto-detalhes .botao-comprar:last-of-type").addEventListener("click", () => adicionarAoCarrinho(false));
+
+
+
+  function alterarQuantidade(delta) {
+  const input = document.getElementById("quantidade");
+  let valorAtual = parseInt(input.value);
+  valorAtual += delta;
+  if (valorAtual < 1) valorAtual = 1;
+  input.value = valorAtual;
+}
+
+
+  function getParam(param) {
+    const params = new URLSearchParams(window.location.search);
+    return params.get(param);
+  }
+
+  function carregarProduto() {
+    const id = getParam("id") || "sabaoEcologico"; 
+
+    if (!produtos[id]) {
+      document.body.innerHTML =
+        "<p style='padding:20px; font-size:18px;'>Produto não encontrado.</p>";
+      return;
+    }
+
+    const produto = produtos[id];
+
+    document.getElementById("produto-img").src = produto.img;
+    document.getElementById("produto-img").alt = produto.nome;
+    document.getElementById("produto-nome").textContent = produto.nome;
+    document.getElementById("produto-preco").textContent = produto.preco;
+    document.getElementById("produto-descricao").textContent = produto.descricao;
+
+    const ul = document.getElementById("produto-beneficios");
+    ul.innerHTML = "";
+    produto.beneficios.forEach((b) => {
+      const li = document.createElement("li");
+      li.textContent = b;
+      ul.appendChild(li);
+    });
+  }
+
+  function carregarProduto() {
+  const id = getParam("id") || "sabaoEcologico"; 
+
+  if (!produtos[id]) {
+    document.body.innerHTML =
+      "<p style='padding:20px; font-size:18px;'>Produto não encontrado.</p>";
+    return;
+  }
+
+  const produto = produtos[id];
+
+  document.getElementById("produto-img").src = produto.img;
+  document.getElementById("produto-img").alt = produto.nome;
+  document.getElementById("produto-nome").textContent = produto.nome;
+  document.getElementById("produto-preco").textContent = produto.preco;
+  document.getElementById("produto-descricao").textContent = produto.descricao;
+
+  const ul = document.getElementById("produto-beneficios");
+  ul.innerHTML = "";
+  produto.beneficios.forEach((b) => {
+    const li = document.createElement("li");
+    li.textContent = b;
+    ul.appendChild(li);
+  });
+
+  
+  mostrarRelacionados(id);
+}
+
+function mostrarRelacionados(produtoAtualId) {
+  const relacionadosContainer = document.querySelector(".relacionados .card-container");
+  relacionadosContainer.innerHTML = "";
+
+  const chaves = Object.keys(produtos).filter((key) => key !== produtoAtualId);
+
+  for (let i = chaves.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [chaves[i], chaves[j]] = [chaves[j], chaves[i]];
+  }
+
+  const recomendados = chaves.slice(0, 3);
+
+  recomendados.forEach((id) => {
+    const p = produtos[id];
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${p.img}" alt="${p.nome}" />
+      <h3>${p.nome}</h3>
+      <p>${p.preco}</p>
+      <button onclick="window.location.href='produto.html?id=${id}'">Ver Produto</button>
+    `;
+    relacionadosContainer.appendChild(card);
+  });
+}
+
+function salvarCarrinho(carrinho) {
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    }
+
+    function carregarCarrinho() {
+      const carrinhoJSON = localStorage.getItem('carrinho');
+      return carrinhoJSON ? JSON.parse(carrinhoJSON) : [];
+    }
+
+    document.querySelectorAll('.btn-adicionar').forEach(botao => {
+      botao.addEventListener('click', () => {
+        const card = botao.closest('.produto-card');
+        if (!card) return;
+        const imagem = card.querySelector('img')?.getAttribute('src') || '';
+
+        const nome = card.querySelector('h3')?.textContent.trim() || 'Produto';
+
+        let precoTexto = card.querySelector('.preco-final')?.textContent.trim() || 'R$ 0,00';
+        
+        let preco = parseFloat(precoTexto.replace('R$', '').replace(',', '.').trim()) || 0;
+
+        const id = nome.toLowerCase().replace(/\s+/g, '-');
+
+        let carrinho = carregarCarrinho();
+
+        const produtoExistente = carrinho.find(item => item.id === id);
+
+        if (produtoExistente) {
+          produtoExistente.quantidade += 1;
+        } else {
+          carrinho.push({ id, nome, preco, imagem, quantidade: 1 });
+        }
+
+        salvarCarrinho(carrinho);
+        atualizarContadorCarrinho();
+        alert(`Produto "${nome}" adicionado ao carrinho!`);
+      });
+    });
+
+  function atualizarContadorCarrinho() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const totalItens = carrinho.reduce((soma, item) => soma + item.quantidade, 0);
+      const contador = document.getElementById('contador-carrinho');
+
+      if (totalItens > 0) {
+        contador.textContent = totalItens;
+        contador.style.display = 'inline-block';
+      } else {
+        contador.style.display = 'none';
+      }
+    }
+    
+    atualizarContadorCarrinho();
+
+function scrollCards(button, direction) {
+  const wrapper = button.parentElement; 
+  const container = wrapper.querySelector(".card-container");
+  const card = container.querySelector(".card");
+
+  if (!container || !card) return;
+
+  const style = getComputedStyle(container);
+  const gap = parseInt(style.gap) || 20;
+
+  const scrollAmount = card.offsetWidth + gap;
+
+  container.scrollBy({
+    left: scrollAmount * direction,
+    behavior: "smooth"
+  });
+}
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('nav-links')
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+
+  document.querySelector(".produto-detalhes .botao-comprar:first-of-type").addEventListener("click", comprarAgora);
+document.querySelector(".produto-detalhes .botao-comprar:last-of-type").addEventListener("click", adicionarAoCarrinho);
+
+
+
+
+window.onload = carregarProduto;
+
+  
+  let lastScrollTop = 0;
+  const navbar = document.querySelector(".navbar");
+  const searchBar = document.querySelector(".search-bar-wrapper");
+</script>
+</body>
+</html>

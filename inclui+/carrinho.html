@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrinho - Inclui+Verde</title>
+  <link rel="stylesheet" href="css/carrinho.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+    <div class="navbar-left">
+      <img src="img/logo.png" alt="Inclui+Verde Logo" class="logo-img">
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="loja.html">Loja</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="criar-loja.html">Minha Loja</a></li>
+    </ul>
+
+    <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
+
+  </nav>
+  </header>
+
+  <main>
+  <h1>Seu Carrinho</h1>
+  <div id="lista-carrinho"></div>
+  <div class="total" id="total-carrinho">Total: R$ 0,00</div>
+<div class="botoes-carrinho">
+  <button id="finalizar-compra" class="btn-finalizar">Finalizar Compra</button>
+  <a href="loja.html" class="btn-continuar">Continuar Comprando</a>
+</div>
+
+<div id="mensagem-sucesso" style="text-align:center; margin-top: 20px; font-weight: bold; color: green;"></div>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <div class="rodape-logo">
+        <img src="img/verde.png" alt="Inclui+Verde Logo" />
+        <p>Promovendo um futuro mais verde, justo e colaborativo.</p>
+      </div>
+
+      <div class="rodape-links">
+      <h4>Links Rápidos</h4>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="loja.html">Loja</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+
+    <div class="rodape-social">
+  <h4>Redes Sociais</h4>
+  <div class="icones-sociais">
+    <a href="https://www.instagram.com/inclui_mais_verde?igsh=aGh6Z2Ywa254Mmd2">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:incluimaisverde@gmail.com">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+</div>
+  </footer>
+  </script>
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('nav-links')
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+  let lastScrollTop = 0;
+  const navbar = document.querySelector('.navbar');
+
+  window.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      navbar.style.top = "-80px";
+    } else {
+      navbar.style.top = "0";
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+    function formatarPreco(valor) {
+      return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function carregarCarrinho() {
+      const carrinhoJSON = localStorage.getItem('carrinho');
+      return carrinhoJSON ? JSON.parse(carrinhoJSON) : [];
+    }
+
+    function salvarCarrinho(carrinho) {
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    }
+
+    function atualizarTotal(carrinho) {
+      const total = carrinho.reduce((soma, item) => soma + item.preco * item.quantidade, 0);
+      document.getElementById('total-carrinho').textContent = 'Total: ' + formatarPreco(total);
+    }
+
+    function renderizarCarrinho() {
+  const lista = document.getElementById('lista-carrinho');
+  let carrinho = carregarCarrinho();
+
+  lista.innerHTML = '';
+
+  if(carrinho.length === 0) {
+    lista.innerHTML = '<p>Seu carrinho está vazio.</p>';
+    atualizarTotal([]);
+    return;
+  }
+
+  carrinho.forEach((item, index) => {
+  const div = document.createElement('div');
+  div.className = 'item-carrinho';
+
+  div.innerHTML = `
+   <img src="${item.imagem}" alt="${item.nome}" data-id="${item.id}" class="img-ver-produto" style="cursor:pointer;" />
+    <div class="info-produto">
+      <h2>${item.nome}</h2>
+      <p class="preco">${formatarPreco(item.preco)}</p>
+    </div>
+    <div class="quantidade-container">
+      <button class="btn-menos" data-index="${index}">-</button>
+      <input type="number" class="quantidade" min="1" value="${item.quantidade}" data-index="${index}" readonly />
+      <button class="btn-mais" data-index="${index}">+</button>
+    </div>
+    <button class="btn-remover" data-index="${index}">Remover</button>
+  `;
+
+  lista.appendChild(div);
+});
+
+document.querySelectorAll('.img-ver-produto').forEach(img => {
+  img.addEventListener('click', (e) => {
+    const id = e.target.getAttribute('data-id');
+    window.location.href = `produto.html?id=${id}`;
+  });
+});
+
+  document.querySelectorAll('.btn-menos').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const idx = e.target.getAttribute('data-index');
+      let carrinho = carregarCarrinho();
+      if (carrinho[idx].quantidade > 1) {
+        carrinho[idx].quantidade--;
+        salvarCarrinho(carrinho);
+        renderizarCarrinho();
+      }
+    });
+  });
+
+  document.querySelectorAll('.btn-mais').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const idx = e.target.getAttribute('data-index');
+      let carrinho = carregarCarrinho();
+      carrinho[idx].quantidade++;
+      salvarCarrinho(carrinho);
+      renderizarCarrinho();
+    });
+  });
+
+
+  document.querySelectorAll('.btn-remover').forEach(botao => {
+    botao.addEventListener('click', (e) => {
+      const idx = e.target.getAttribute('data-index');
+      let carrinho = carregarCarrinho();
+      carrinho.splice(idx, 1);
+      salvarCarrinho(carrinho);
+      renderizarCarrinho();
+    });
+  });
+
+  document.querySelectorAll('.btn-ver').forEach(botao => {
+    botao.addEventListener('click', (e) => {
+      const id = e.target.getAttribute('data-id');
+      window.location.href = `produto.html?id=${id}`;
+    });
+  });
+  
+document.getElementById('finalizar-compra').addEventListener('click', () => {
+  localStorage.removeItem('carrinho');
+
+  const mensagemSucesso = document.getElementById('mensagem-sucesso');
+  mensagemSucesso.textContent = "Obrigado por comprar na Inclui+Verde!";
+
+  const listaCarrinho = document.getElementById('lista-carrinho');
+  listaCarrinho.innerHTML = '';
+
+  document.getElementById('total-carrinho').textContent = 'Total: R$ 0,00';
+
+});
+
+  atualizarTotal(carrinho);
+}
+ 
+    renderizarCarrinho();
+
+
+  </script>
+
+</body>
+</html>

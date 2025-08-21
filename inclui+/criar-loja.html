@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crie sua Lojinha - Inclui+Verde</title>
+  <link rel="stylesheet" href="css/criar-loja.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .form-lojinha {
+      max-width: 600px;
+      margin: 60px auto;
+      background: #f5fdf7;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .form-lojinha h2 {
+      text-align: center;
+      color: #1f4d3a;
+      margin-bottom: 20px;
+    }
+
+    .form-lojinha label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .form-lojinha input, .form-lojinha textarea, .form-lojinha select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .form-lojinha button {
+      background-color: #1f4d3a;
+      color: white;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .form-lojinha button:hover {
+      background-color: #267d55;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="img/logo.png" alt="Inclui+Verde Logo" class="logo-img">
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="loja.html">Loja</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="criar-loja.html">Minha Loja</a></li>
+    </ul>
+
+    <a href="carrinho.html">
+  <div class="carrinho-icone">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="contador-carrinho" class="contador-carrinho">0</span>
+  </div>
+</a>
+    <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
+
+  </nav>
+</header>
+
+  <section class="form-lojinha">
+  <h2>Crie sua lojinha +Verde 🌿</h2>
+  <form action="https://formspree.io/f/seu-endpoint-aqui" method="POST" enctype="multipart/form-data">
+
+  <h3>Informações da Loja</h3>
+  
+  <label for="nome">Seu nome completo</label>
+  <input type="text" id="nome" name="nome" required>
+
+  <label for="email">E-mail para contato</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="whatsapp">WhatsApp</label>
+  <input type="tel" id="whatsapp" name="whatsapp" placeholder="(21) 99999-9999">
+
+  <label for="nome-loja">Nome da sua loja</label>
+  <input type="text" id="nome-loja" name="nome-loja" required>
+
+  <label for="descricao">Fale um pouco sobre a sua loja</label>
+  <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+  <h3>Cadastro de Produtos</h3>
+
+  <label for="produto1-nome">Nome do Produto</label>
+  <input type="text" id="produto1-nome" name="produto1-nome" required>
+
+  <label for="produto1-preco">Preço</label>
+  <input type="text" id="produto1-preco" name="produto1-preco" required>
+
+  <label for="produto1-img">Imagem do Produto</label>
+  <input type="file" id="produto1-img" name="produto1-img" accept="image/*" required>
+
+  <label for="produto1-desc">Descrição</label>
+  <textarea id="produto1-desc" name="produto1-desc" rows="3" required></textarea>
+
+  <button type="submit">Quero criar minha lojinha!</button>
+
+</form>
+
+</section>
+
+
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <div class="rodape-logo">
+        <img src="img/verde.png" alt="Inclui+Verde Logo">
+        <p>Promovendo um futuro mais verde, justo e colaborativo.</p>
+      </div>
+      <div class="rodape-links">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="loja.html">Loja</a></li>
+          <li><a href="sobre.html">Sobre Nós</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+     <div class="rodape-social">
+  <h4>Redes Sociais</h4>
+  <div class="icones-sociais">
+    <a href="https://www.instagram.com/inclui_mais_verde?igsh=aGh6Z2Ywa254Mmd2">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:incluimaisverde@gmail.com">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+</div>
+  </footer>
+  <script>
+      const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('nav-links')
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+  let lastScrollTop = 0;
+  const navbar = document.querySelector('.navbar');
+
+  window.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      
+      navbar.style.top = "-80px";
+      searchBar.style.top = "-60px";
+    } else {
+     
+      navbar.style.top = "0";
+      searchBar.style.top = "70px";
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, false);
+    function atualizarContadorCarrinho() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const totalItens = carrinho.reduce((soma, item) => soma + item.quantidade, 0);
+      const contador = document.getElementById('contador-carrinho');
+
+      if (totalItens > 0) {
+        contador.textContent = totalItens;
+        contador.style.display = 'inline-block';
+      } else {
+        contador.style.display = 'none';
+      }
+    }
+    
+    atualizarContadorCarrinho();
+ 
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    alert('Sua solicitação para criação da loja está em análise. Em breve daremos um retorno.');
+    form.reset(); 
+  });
+
+
+</script>
+</body>
+</html>

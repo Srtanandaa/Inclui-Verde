@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4fdf7;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  padding-top: 80px; 
+
+}
+
+.form-lojinha {
+      max-width: 600px;
+      margin: 60px auto;
+      background: #f5fdf7;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .form-lojinha h2 {
+      text-align: center;
+      color: #1f4d3a;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+    }
+
+    .form-lojinha h3{
+      padding-bottom: 15px;
+      color: #125407;
+      font-size: 25px;
+    }
+
+    .form-lojinha label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .form-lojinha input, .form-lojinha textarea, .form-lojinha select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .form-lojinha button {
+      background-color: #125407;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .form-lojinha button:hover {
+      background-color: #f5bd25;
+    }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #125407;
+  padding: 15px 20px;
+  color: white;
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  right: 0;
+  z-index: 1000; 
+  transition: top 0.3s ease;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #125407;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 15px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: white;
+  }
+}
+
+.logo-img {
+  height: 40px;
+}
+
+.nav-links {
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links.show {
+  display: flex; 
+}
+
+@media (min-width: 769px) {
+  .nav-links {
+    display: flex; 
+    flex-direction: row;
+    background-color: transparent;
+    position: static;
+    padding: 0;
+  }
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links :hover{
+  color: #f5bd25;
+}
+
+.carrinho-icone :hover{
+  color: #f5bd25;
+}
+
+.carrinho-icone {
+  font-size: 20px;
+  color: white;
+}
+
+.carrinho-icone {
+  position: relative;
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+#contador-carrinho {
+  position: absolute;
+  top: -15px;
+  right: -18px;
+  background: #f5bd25;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+  display: none; 
+}
+
+
+.search-bar-wrapper {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  padding: 10px 20px;
+  z-index: 999;
+  transition: top 0.3s ease;
+}
+
+.search {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.rodape {
+  background-color: #fffcf2;
+  color: white;
+  padding: 40px 20px 20px;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 50px;
+}
+
+.rodape-conteudo {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.rodape-logo {
+  flex: 1 1 250px;
+}
+
+.rodape-logo img {
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.rodape-logo p {
+  font-size: 0.95rem;
+  color: #125407;
+}
+
+.rodape-links,
+.rodape-social {
+  flex: 1 1 200px;
+}
+
+.rodape-links h4,
+.rodape-social h4 {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  color: #125407;
+}
+
+.rodape-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.rodape-links li {
+  margin-bottom: 10px;
+}
+
+.rodape-links a {
+  color: #125407;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.rodape-links a:hover {
+  color: #aef1a8;
+}
+
+.icones-sociais a {
+  color: #125407;
+  margin-right: 15px;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.icones-sociais a:hover {
+  transform: scale(1.2);
+  color: #f5bd25;
+}
+

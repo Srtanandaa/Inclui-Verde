@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inclui+Verde</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+</head>
+
+<body>
+
+ <header>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="img/logo.png" alt="Inclui+Verde Logo" class="logo-img">
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="loja.html">Loja</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="criar-loja.html">Minha Loja</a></li>
+    </ul>
+
+    <a href="carrinho.html">
+  <div class="carrinho-icone">
+    <i class="fas fa-shopping-cart"></i>
+        <span id="contador-carrinho" style="display: none;">0</span>    <span id="contador-carrinho" style="display: none;">0</span>
+  </div>
+</a>
+    <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
+
+  </nav>
+
+  
+  <div class="search-bar-wrapper">
+    <input type="text" class="search" placeholder="Buscar produtos...">
+  </div>
+</header>
+
+
+  <section class="banner">
+    <img src="img/banner1.png" alt="banner">
+  </section>
+
+  <section class="beneficios">
+  <h2>Benefícios dos nossos produtos</h2>
+
+  <!-- Grid desktop -->
+  <div class="beneficios-grid desktop-only">
+    <div class="card-beneficio">
+      <img src="img/icone eco.png" alt="Ícone Ecológico">
+      <h4>100% Natural</h4>
+      <p>Produtos feitos com ingredientes naturais, sem agressão à natureza.</p>
+    </div>
+    <div class="card-beneficio">
+      <img src="img/icone bio.png" alt="Ícone Biodegradável">
+      <h4>Biodegradável</h4>
+      <p>Desenvolvidos para desaparecer com segurança no meio ambiente.</p>
+    </div>
+    <div class="card-beneficio">
+      <img src="img/icone vegan.png" alt="Ícone Vegano">
+      <h4>Vegano</h4>
+      <p>Sem ingredientes de origem animal e sem testes em animais.</p>
+    </div>
+  </div>
+
+  <!-- Carrossel mobile -->
+  <div class="swiper mobile-only">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide card-beneficio">
+        <img src="img/icone eco.png" alt="Ícone Ecológico">
+        <h4>100% Natural</h4>
+        <p>Produtos feitos com ingredientes naturais, sem agressão à natureza.</p>
+      </div>
+      <div class="swiper-slide card-beneficio">
+        <img src="img/icone bio.png" alt="Ícone Biodegradável">
+        <h4>Biodegradável</h4>
+        <p>Desenvolvidos para desaparecer com segurança no meio ambiente.</p>
+      </div>
+      <div class="swiper-slide card-beneficio">
+        <img src="img/icone vegan.png" alt="Ícone Vegano">
+        <h4>Vegano</h4>
+        <p>Sem ingredientes de origem animal e sem testes em animais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  
+  <section class="produtos">
+  <h2>Nossos Produtos Inclui+</h2>
+  <div class="card-container-wrapper">
+    <button class="scroll-button left" onclick="scrollCards(this, -1)">←</button>
+
+    <div class="card-container">
+      <div class="card">
+        <img src="img/sabão.png" alt="Sabão Ecológico">
+        <h3>Sabão Ecológico</h3>
+        <p>Feito com ingredientes naturais, biodegradável.</p>
+        <button onclick="window.location.href='produto.html?id=sabaoEcologico'">Ver Produto</button>
+      </div>
+
+      <div class="card">
+        <img src="img/sabao-em-po.png" alt="Sabão em pó">
+        <h3>Sabão em pó</h3>
+        <p>Ideal para todos os tipos de tecidos.</p>
+         <button onclick="window.location.href='produto.html?id=sabaoEmPo'">Ver Produto</button>
+      </div>
+
+      <div class="card">
+        <img src="img/Desinfetante.png" alt="Desinfetante Natural">
+        <h3>Desinfetante Natural</h3>
+        <p>Limpeza eficaz sem agredir o meio ambiente.</p>
+        <button onclick="window.location.href='produto.html?id=desinfetanteNatural'">Ver Produto</button>
+      </div>
+
+      <div class="card">
+        <img src="img/detergente.png" alt="Detergente">
+        <h3>Detergente</h3>
+        <p>Uma escolha consciente para quem quer uma pia limpa e um planeta mais verde.</p>
+        <button onclick="window.location.href='produto.html?id=detergenteEcologico'">Ver Produto</button>
+      </div>
+
+      <div class="card">
+        <img src="img/pastilha.png" alt="Pastilha">
+        <h3>Pastilha para vaso sanitário</h3>
+        <p>Limpeza prática e ecológica para o seu banheiro.</p>
+        <button onclick="window.location.href='produto.html?id=pastilhaSanitaria'">Ver Produto</button>
+      </div>
+    </div>
+
+    <button class="scroll-button right" onclick="scrollCards(this, 1)">→</button>
+  </div>
+</section>
+
+
+<section class="comunidade">
+  <h2>🌿 Da Comunidade Verde</h2>
+  <div class="card-container-wrapper">
+    <button class="scroll-button left" onclick="scrollCards(this, -1)">←</button>
+
+    <div class="card-container">
+      <div class="card">
+        <img src="img/vela outro.png" alt="Produto da comunidade 1">
+        <h3>Velas Naturais</h3>
+        <p>Produzidas artesanalmente com cera vegetal.</p>
+        <button onclick="window.location.href='produto.html?id=velasNaturais'">Ver Produto</button>
+      </div>
+      <div class="card">
+        <img src="img/detergente outro.png" alt="Produto da comunidade 2">
+        <h3>Detergente Eco</h3>
+        <p>Feito por pequenos produtores locais. Biodegradável.</p>
+        <button onclick="window.location.href='produto.html?id=detergenteEcoComunidade'">Ver Produto</button>
+      </div>
+      <div class="card">
+        <img src="img/bucha outro.png" alt="Bucha vegetal artesanal">
+        <h3>Bucha Vegetal</h3>
+        <p>Alternativa natural e compostável às esponjas sintéticas.</p>
+        <button onclick="window.location.href='produto.html?id=buchaVegetal'">Ver Produto</button>
+      </div>
+      <div class="card">
+        <img src="img/sabonete outro.png" alt="Sabonete artesanal natural">
+        <h3>Sabonete Natural</h3>
+        <p>Feito à mão com óleos vegetais e ervas, sem corantes artificiais. Ideal para peles sensíveis.</p>
+        <button onclick="window.location.href='produto.html?id=saboneteNaturalComunidade'">Ver Produto</button>
+      </div>
+      <div class="card">
+        <img src="img/spray outro.png" alt="Spray aromatizador natural">
+        <h3>Spray Aromático Natural</h3>
+        <p>Perfuma o ambiente com óleos essenciais puros.
+        </p>
+       <button onclick="window.location.href='produto.html?id=sprayAromatic'">Ver Produto</button>
+      </div>
+    </div>
+
+    <button class="scroll-button right" onclick="scrollCards(this, 1)">→</button>
+  </div>
+</section>
+
+
+  <section class="quem-somos">
+  
+  <div class="bloco-quem-somos">
+    <div class="imagem-lado-esquerdo">
+      <img src="img/verde.png" alt="Logo Inclui+Verde">
+    </div>
+    <div class="texto-lado-direito">
+      <h2>🌿 Quem Somos</h2>
+      <p>
+        A inspiração da <strong>Inclui+Verde</strong> nasceu de uma história simples: uma conhecida que produzia sabão caseiro. Ao experimentar, percebemos que o produto era mais eficaz, saudável e sustentável do que muitos industrializados. Porém, como tantos pequenos produtores, ela enfrentava um desafio enorme: <strong>falta de visibilidade</strong>.
+      </p>
+      <p>
+        Foi a partir dessa percepção que nasceu a ideia da nossa plataforma: dar visibilidade a quem faz a diferença pelo planeta.
+      </p>
+      <div class="texto-extra">
+      <p>
+        A <strong>Inclui+Verde</strong> é uma plataforma web voltada para a venda de <strong>produtos sustentáveis da nossa própria marca</strong>, como sabão ecológico, desinfetante biodegradável e outros itens pensados para cuidar da sua casa sem agredir o meio ambiente.
+      </p>
+    </div>
+
+  </div>
+  </div>
+  <div class="bloco-quem-somos bloco-invertido">
+    <div class="texto-lado-esquerdo">
+      <p>
+        Mais do que isso, queremos ir além. Criamos um espaço digital para que <strong>outros pequenos produtores e revendedores</strong> de produtos sustentáveis também possam participar. Eles podem criar suas próprias lojinhas dentro da plataforma, vender seus produtos e alcançar um público que valoriza práticas conscientes e ecológicas.
+      </p>
+      <p>
+        Juntos, queremos formar uma rede colaborativa que promove o consumo responsável, valoriza o pequeno empreendedor e fortalece um futuro mais verde. 
+      </p>
+    </div>
+    <div class="imagem-lado-direito">
+      <img src="img/Quem somos.png" alt="Consuma de forma consciente">
+      
+    </div>
+  </div>
+  <button class="btn-ler-mais" aria-expanded="false">Ler mais</button>
+</section>
+
+<section class="anuncie-loja">
+  <div class="container-anuncie">
+    <div class="col-esquerda">
+      <h2>🌿 Anuncie seus produtos aqui e crie sua lojinha +Verde!</h2>
+    </div>
+    <div class="col-centro">
+      <p>Junte-se a nós e dê visibilidade aos seus produtos sustentáveis. Faça parte da nossa rede colaborativa.</p>
+    </div>
+    <div class="col-direita">
+      <button class="btn-anuncie" onclick="window.location.href='criar-loja.html'">
+        Quero criar minha lojinha +Verde
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="rodape-conteudo">
+    <div class="rodape-logo">
+      <img src="img/verde.png" alt="Inclui+Verde Logo">
+      <p>Promovendo um futuro mais verde, justo e colaborativo.</p>
+    </div>
+
+    <div class="rodape-links">
+      <h4>Links Rápidos</h4>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="loja.html">Loja</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+
+   <div class="rodape-social">
+  <h4>Redes Sociais</h4>
+  <div class="icones-sociais">
+    <a href="https://www.instagram.com/inclui_mais_verde?igsh=aGh6Z2Ywa254Mmd2">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:incluimaisverde@gmail.com">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+</div>
+</footer>
+
+<script src="produto.js"></script>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('nav-links')
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+  function scrollCards(button, direction) {
+    const container = button.parentElement.querySelector('.card-container');
+    const card = container.querySelector('.card');
+    const cardWidth = card.offsetWidth + 20; 
+    container.scrollLeft += direction * cardWidth;
+  }
+
+ document.addEventListener('DOMContentLoaded', () => {
+  const btnLerMais = document.querySelector('.btn-ler-mais');
+  const textoExtra = document.querySelector('.texto-extra');
+  const blocoInvertido = document.querySelector('.bloco-invertido');
+
+  btnLerMais.addEventListener('click', () => {
+    const isExpanded = btnLerMais.getAttribute('aria-expanded') === 'true';
+
+    if (isExpanded) {
+      textoExtra.style.display = 'none';
+      blocoInvertido.style.display = 'none';
+      btnLerMais.textContent = 'Ler mais';
+      btnLerMais.setAttribute('aria-expanded', 'false');
+    } else {
+      textoExtra.style.display = 'block';
+      blocoInvertido.style.display = 'block';
+      btnLerMais.textContent = 'Ler menos';
+      btnLerMais.setAttribute('aria-expanded', 'true');
+    }
+  });
+});~
+
+function atualizarContadorCarrinho() {
+  const carrinho = carregarCarrinho();
+  const totalItens = carrinho.reduce((soma, item) => soma + item.quantidade, 0);
+  const contador = document.getElementById('contador-carrinho');
+
+  if (!contador) return; 
+
+  if (totalItens > 0) {
+    contador.textContent = totalItens;
+    contador.style.display = 'inline-block';
+  } else {
+    contador.style.display = 'none';
+  }
+}
+
+window.addEventListener('load', () => {
+  atualizarContadorCarrinho();
+});
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 1,
+    spaceBetween: 20,
+    centeredSlides: true,
+  });
+  
+</script>
+<script>
+  function atualizarContadorCarrinho() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const totalItens = carrinho.reduce((soma, item) => soma + item.quantidade, 0);
+      const contador = document.getElementById('contador-carrinho');
+
+      if (totalItens > 0) {
+        contador.textContent = totalItens;
+        contador.style.display = 'inline-block';
+      } else {
+        contador.style.display = 'none';
+      }
+    }
+    
+    atualizarContadorCarrinho();
+
+  let lastScrollTop = 0;
+  const navbar = document.querySelector('.navbar');
+  const searchBar = document.querySelector('.search-bar-wrapper');
+
+  window.addEventListener('scroll', function () {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      
+      navbar.style.top = "-80px";
+      searchBar.style.top = "-60px";
+    } else {
+     
+      navbar.style.top = "0";
+      searchBar.style.top = "70px";
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, false);
+</script>
+<script>
+  
+</script>
+
+
+
+
+
+  <script src="js/script.js"></script>
+</body>
+</html>

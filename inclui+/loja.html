@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inclui+Verde</title>
+  <link rel="stylesheet" href="css/loja.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+</head>
+
+<body>
+
+ <header>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <img src="img/logo.png" alt="Inclui+Verde Logo" class="logo-img">
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="loja.html">Loja</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="criar-loja.html">Minha Loja</a></li>
+    </ul>
+
+    <a href="carrinho.html">
+  <div class="carrinho-icone">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="contador-carrinho" class="contador-carrinho">0</span>
+  </div>
+</a>
+    <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
+
+  </nav>
+
+ <div class="search-bar-wrapper">
+  <input type="text" class="search" placeholder="Buscar produtos...">
+</div>
+ 
+</header>
+
+<main class="loja-completa">
+
+
+  <aside class="menu-lateral">
+  <h3>Categorias</h3>
+  <ul>
+    <li><i class="fas fa-soap"></i>Sabonetes</li>
+    <li><i class="fas fa-soap"></i>Sabões</li>
+    <li><i class="fas fa-pump-soap"></i> Detergentes</li>
+    <li><i class="fas fa-spray-can-sparkles"></i> Desinfetantes</li>
+    <li><i class="fas fa-burn"></i> Velas Ecológicas</li>
+    <li><i class="fas fa-toilet"></i> Pastilhas Sanitárias</li>
+    <li><i class="fas fa-recycle"></i>Spray Aromático</li>
+  </ul>
+</aside>
+
+
+ 
+  <section class="conteudo-loja">
+  <h2 class="secao-titulo">Novidades</h2>
+
+  <div class="novidades-wrapper">
+    <div class="grid-produtos">
+
+      <div class="produto-card">
+        <span class="badge-desconto">20%</span>
+        <img src="img/sabonete natural outro.png" alt="Sabonete Natural">
+        <p class="categoria">Higiene</p>
+        <h3>Sabonete Natural</h3>
+        <div class="avaliacao">⭐ 4.5 (18)</div>
+        <p class="preco">
+          <span class="preco-final">R$ 12,80</span>
+          <span class="preco-original">R$ 16,00</span>
+        </p>
+        <div class="botoes-produto">
+ <button class= btn-comprar onclick="window.location.href='produto.html?id=sabaoNatural'">Comprar</button>
+  <button class="btn-adicionar"><i class="fas fa-shopping-cart"></i> Incluir+</button>
+</div>
+
+      </div>
+
+   
+      <div class="produto-card">
+        <img src="img/escova bambu outro.png" alt="Escova de Bambu">
+        <p class="categoria">Sustentável</p> 
+        <h3>Escova de Bambu</h3>
+        <div class="avaliacao">⭐ 4.2 (25)</div>
+        <p class="preco">
+          <span class="preco-final">R$ 25,00</span>
+        </p>
+       <div class="botoes-produto">
+   <button class= btn-comprar onclick="window.location.href='produto.html?id=escovaBambu'">Comprar</button>
+  <button class="btn-adicionar"><i class="fas fa-shopping-cart"></i> Incluir+</button>
+</div>
+
+      </div>
+    </div>
+  </section>
+
+<section class="conteudo-loja">
+  <h2 class="secao-titulo">Nossos Produtos</h2>
+  <div class="grid-produtos">
+    <div class="produto-card">
+      <img src="img/sabao-em-po.png" alt="Sabão em pó">
+      <p class="categoria">Limpeza</p>
+      <h3>Sabão em pó</h3>
+      <div class="avaliacao">⭐ 4.8 (32)</div>
+      <p class="preco">
+        <span class="preco-final">R$ 29,90</span>
+      </p>
+     <div class="botoes-produto">
+  <button class= btn-comprar onclick="window.location.href='produto.html?id=sabaoEmPo'">Comprar</button>
+  <button class="btn-adicionar"><i class="fas fa-shopping-cart"></i> Incluir+</button>
+</div>
+
+    </div>
+
+    <div class="produto-card">
+      <img src="img/sabão.png" alt="Sabão Ecológico">
+      <p class="categoria">Limpeza</p>
+      <h3>Sabão Ecológico</h3>
+      <div class="avaliacao">⭐ 4.6 (19)</div>
+      <p class="preco">
+        <span class="preco-final">R$ 14,50</span>
+      </p>
+      <div class="botoes-produto">
+  <button class= btn-comprar onclick="window.location.href='produto.html?id=sabaoEcologico'">Comprar</button>
+  <button class="btn-adicionar"><i class="fas fa-shopping-cart"></i> Incluir+</button>
+</div>
+
+    </div>
+
+    <div class="produto-card">
+      <img src="img/Desinfetante.png" alt="Desinfetante Natural">
+      <p class="categoria">Limpeza</p>
+      <h3>Desinfetante Natural</h3>
+      <div class="avaliacao">⭐ 4.7 (22)</div>
+      <p class="preco">
+        <span class="preco-final">R$ 18,90</span>
+      </p>
+     <div class="botoes-produto">
+  <button class= btn-comprar onclick="window.location.href='produto.html?id=desinfetanteNatural'">Comprar</button>
+  <button class="btn-adicionar"><i class="fas fa-shopping-cart"></i> Incluir+</button>
+</div>
+
+    </div>
+
+    <div class="produto-card">
+      <img src="img/detergente.png" alt="detergente">
+      <p class="categoria">Limpeza</p>
+      <h3>Detergente</h3>
+      <div class="avaliacao">⭐ 4.4 (16)</div>
+      <p class="preco">
+        <span class="preco-final">R$ 10,90</span>
+      </p>
+     <div class="botoes-produto">
+  <button class= btn-comprar onclick="window.location.href='produto.html?id=detergenteEcologico'">Comprar</button>
+  <button class="btn-adicionar"><i class="fas fa-shopping-cart"></i> Incluir+</button>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!--  da comunidade -->
+<section class="conteudo-loja">
+  <h2 class="secao-titulo">Produtos da Comunidade</h2>
+  <div class="grid-produtos">
+    <div class="produto-card comunidade">
+      <img src="img/detergente outro.png" alt="detergente">
+      <p class="categoria">Limpeza</p>
+      <h3>Detergente</h3>
+      <div class="avaliacao">⭐ 4.9 (7)</div>
+      <p class="preco">
+        <span class="preco-final">R$ 11,90</span>
+      </p>
+      <div class="botoes-produto">
+  <button class= btn-comprar onclick="window.location.href='produto.html?id=detergenteEcoComunidade'">Comprar</button>
+  <button class="btn-adicionar"><i class="fas fa-shopping-cart"></i> Incluir+</button>
+</div>
+
+    </div>
+
+    <div class="produto-card comunidade">
+      <img src="img/sabao lavanda outro.png" alt="Sabonete de Lavanda">
+      <p class="categoria">Higiene</p>
+      <h3>Sabonete de Lavanda</h3>
+      <div class="avaliacao">⭐ 5.0 (4)</div>
+      <p class="preco">
+        <span class="preco-final">R$ 12,00</span>
+      </p>
+      <div class="botoes-produto">
+  <button class= btn-comprar onclick="window.location.href='produto.html?id=sabaoLavanda'">Comprar</button>
+  <button class="btn-adicionar"><i class="fas fa-shopping-cart"></i> Incluir+</button>
+</div>
+
+    </div>
+
+    <div class="produto-card comunidade">
+      <img src="img/vela outro.png" alt="Vela">
+      <p class="categoria">Sustentável</p>
+      <h3>Vela Natural</h3>
+      <div class="avaliacao">⭐ 4.6 (11)</div>
+      <p class="preco">
+        <span class="preco-final">R$ 15,00</span>
+      </p>
+      <div class="botoes-produto">
+  <button class= btn-comprar onclick="window.location.href='produto.html?id=velasNaturais'">Comprar</button>
+  <button class="btn-adicionar"><i class="fas fa-shopping-cart"></i> Incluir+</button>
+</div>
+
+    </div>
+
+    <div class="produto-card comunidade">
+      <img src="img/spray outro.png" alt="spray">
+      <p class="categoria">Sustentável</p>
+      <h3>Spray Aromático Natural</h3>
+      <div class="avaliacao">⭐ 4.5 (9)</div>
+      <p class="preco">
+        <span class="preco-final">R$ 13,00</span>
+      </p>
+     <div class="botoes-produto">
+  <button class= btn-comprar onclick="window.location.href='produto.html?id=sprayAromatic'">Comprar</button>
+  <button class="btn-adicionar"><i class="fas fa-shopping-cart"></i> Incluir+</button>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<section class="anuncie-loja">
+  <div class="container-anuncie">
+    <div class="col-esquerda">
+      <h2>🌿 Anuncie seus produtos aqui e crie sua lojinha +Verde!</h2>
+    </div>
+    <div class="col-centro">
+      <p>Junte-se a nós e dê visibilidade aos seus produtos sustentáveis. Faça parte da nossa rede colaborativa.</p>
+    </div>
+    <div class="col-direita">
+      <button class="btn-anuncie" onclick="window.location.href='criar-loja.html'">
+        Quero criar minha lojinha +Verde
+      </button>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+
+
+  <footer class="rodape">
+  <div class="rodape-conteudo">
+    <div class="rodape-logo">
+      <img src="img/verde.png" alt="Inclui+Verde Logo">
+      <p>Promovendo um futuro mais verde, justo e colaborativo.</p>
+    </div>
+
+    <div class="rodape-links">
+      <h4>Links Rápidos</h4>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="loja.html">Loja</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+
+    <div class="rodape-social">
+  <h4>Redes Sociais</h4>
+  <div class="icones-sociais">
+    <a href="https://www.instagram.com/inclui_mais_verde?igsh=aGh6Z2Ywa254Mmd2">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:incluimaisverde@gmail.com">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+</div>
+</footer>
+
+<script>
+    function salvarCarrinho(carrinho) {
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    }
+
+    function carregarCarrinho() {
+      const carrinhoJSON = localStorage.getItem('carrinho');
+      return carrinhoJSON ? JSON.parse(carrinhoJSON) : [];
+    }
+
+    document.querySelectorAll('.btn-adicionar').forEach(botao => {
+      botao.addEventListener('click', () => {
+        const card = botao.closest('.produto-card');
+        if (!card) return;
+        const imagem = card.querySelector('img')?.getAttribute('src') || '';
+
+        const nome = card.querySelector('h3')?.textContent.trim() || 'Produto';
+
+        let precoTexto = card.querySelector('.preco-final')?.textContent.trim() || 'R$ 0,00';
+        
+        let preco = parseFloat(precoTexto.replace('R$', '').replace(',', '.').trim()) || 0;
+
+        const id = nome.toLowerCase().replace(/\s+/g, '-');
+
+        let carrinho = carregarCarrinho();
+
+        const produtoExistente = carrinho.find(item => item.id === id);
+
+        if (produtoExistente) {
+          produtoExistente.quantidade += 1;
+        } else {
+          carrinho.push({ id, nome, preco, imagem, quantidade: 1 });
+        }
+
+        salvarCarrinho(carrinho);
+        atualizarContadorCarrinho();
+        alert(`Produto "${nome}" adicionado ao carrinho!`);
+      });
+    });
+
+  function atualizarContadorCarrinho() {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const totalItens = carrinho.reduce((soma, item) => soma + item.quantidade, 0);
+      const contador = document.getElementById('contador-carrinho');
+
+      if (totalItens > 0) {
+        contador.textContent = totalItens;
+        contador.style.display = 'inline-block';
+      } else {
+        contador.style.display = 'none';
+      }
+    }
+    
+    atualizarContadorCarrinho();
+
+      const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('nav-links')
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+    const searchBar = document.querySelector('.search-bar-wrapper');
+
+    window.addEventListener('scroll', function () {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop) {
+        navbar.style.top = "-80px";
+        if (searchBar) searchBar.style.top = "-60px";
+      } else {
+        navbar.style.top = "0";
+        if (searchBar) searchBar.style.top = "70px";
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+    
+</script>
+
+
+</body>
+</html>
